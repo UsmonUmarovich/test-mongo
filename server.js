@@ -24,6 +24,6 @@ app.get("/", (req, res) => {
 
 app.use(router)
 
-app.listen(PORT, () => {
+app.listen(3000, () => {
     console.log(`Server running on port ${PORT}`);
 });
