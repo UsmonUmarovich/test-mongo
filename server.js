@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import router from "./routes/comment.routes.js";
 
-mongoose.connect("mongodb+srv://Usmon:17032009aA@usmon.dqfejre.mongodb.net/?retryWrites=true&w=majority&appName=Usmon");
+mongoose.connect(DB);
 const db = mongoose.connection;
 
 db.on("error", (err) => console.error);
@@ -17,6 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
+const DB = process.env.MONGODB_URL
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
