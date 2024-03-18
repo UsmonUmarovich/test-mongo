@@ -17,8 +17,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/comments", async (req, res) => {
-  await Comments.find()
+app.get("/comments", (req, res) => {
+   Comments.find()
     .then((r) => res.json(r))
     .catch((err) => res.status(500).json({ message: "Error: " + err }));
 });
