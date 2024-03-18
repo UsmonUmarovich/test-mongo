@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import router from "./routes/comment.routes.js";
 
-mongoose.connect(DB);
+mongoose.connect(MONGODB_URL);
 const db = mongoose.connection;
 
 db.on("error", (err) => console.error);
@@ -17,13 +17,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = process.env.PORT || 3000;
-const DB = process.env.MONGODB_URL
+const MONGODB_URL = process.env.MONGODB_URL
 app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
 app.use(router)
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
