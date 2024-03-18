@@ -9,7 +9,7 @@ const PORT = 3000;
 mongoose
   .connect("mongodb+srv://Usmon:17032009aA@usmon.dqfejre.mongodb.net/?retryWrites=true&w=majority&appName=Usmon")
   .then(() => console.log("MongoDB connected"))
-  .catch(() => console.log("Error connecting to MongoDB"));
+  .catch((err) => console.log("Error connecting to MongoDB" + err));
 
 const app = express();
 
@@ -17,8 +17,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/comments", (req, res) => {
-   Comments.find()
+app.get("/comments", async (req, res) => {
+   await Comments.find({})
     .then((r) => res.json(r))
     .catch((err) => res.status(500).json({ message: "Error: " + err }));
 });
