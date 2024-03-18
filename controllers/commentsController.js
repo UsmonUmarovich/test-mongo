@@ -7,7 +7,9 @@ export const getAllComments = (req, res) => {
 };
 
 export const postComment = (req, res) => {
-  const comment = new Comments(req.body);
+  const comment = new Comments({
+    comment: req.body.comment,
+  });
   comment
     .save()
     .then(() =>

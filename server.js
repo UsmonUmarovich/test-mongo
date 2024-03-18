@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import router from "./routes/comment.routes.js";
 
-mongoose.connect("mongodb://localhost:27017/");
+mongoose.connect("mongodb+srv://Usmon:17032009aA@usmon.dqfejre.mongodb.net/?retryWrites=true&w=majority&appName=Usmon");
 const db = mongoose.connection;
 
 db.on("error", (err) => console.error);
