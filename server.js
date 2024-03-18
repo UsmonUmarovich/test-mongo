@@ -4,7 +4,7 @@ const cors = require("cors");
 const Comments = require("./models/comments.js");
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 mongoose
   .connect("mongodb+srv://Usmon:17032009aA@usmon.dqfejre.mongodb.net/?retryWrites=true&w=majority&appName=Usmon")
