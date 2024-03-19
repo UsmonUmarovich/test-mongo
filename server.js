@@ -51,6 +51,10 @@ app.post("/del-comment/:id", async (req, res) => {
     .catch((err) => res.status(500).json({ message: err }));
 });
 
+app.post("/delete", async (req, res) => {
+  await Comments.deleteMany({}).then(() => alert("All Comments are deleted")).catch(err => console.log("Error: " + err))
+})
+
 app.put("/put-comment/:id", async (req, res) => {
   await Comments.findByIdAndUpdate(req.params.id, {
     comment: req.body.comment,
