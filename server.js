@@ -52,7 +52,7 @@ app.post("/del-comment/:id", async (req, res) => {
 });
 
 app.post("/delete", async (req, res) => {
-  await Comments.deleteMany({}).then(() => alert("All Comments are deleted")).catch(err => console.log("Error: " + err))
+  await Comments.deleteMany({}).then(() => res.json({ message: "All Comments are deleted"})).catch(err => console.log("Error: " + err))
 })
 
 app.put("/put-comment/:id", async (req, res) => {
